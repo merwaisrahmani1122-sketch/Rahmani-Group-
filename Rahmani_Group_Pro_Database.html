@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rahmani Group • مدیریت دارویی</title>
+<style>
+:root{--bg:#f3f7f4;--card:#fff;--text:#18322a;--muted:#6d7e77;--green:#2f7d4a;--green2:#62a957;--dark:#153c2a;--gold:#d4a72c;--red:#c84b4b;--blue:#3675a8;--shadow:0 12px 35px #163b2a16}
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select{font:inherit}button{cursor:pointer;border:0}.hidden{display:none!important}
+.login{min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 20% 10%,#7fbc7a55,transparent 35%),linear-gradient(135deg,#123b2a,#4e914c);padding:20px}
+.loginbox{width:min(430px,100%);background:#ffffffef;border-radius:28px;padding:34px;box-shadow:0 25px 80px #061c1050;text-align:center}
+.logo{width:80px;height:80px;margin:auto;border-radius:24px;background:linear-gradient(135deg,var(--green),#9aca68);display:grid;place-items:center;color:white;font-size:34px;font-weight:900;box-shadow:0 12px 30px #2f7d4a44}
+.loginbox h1{margin:18px 0 5px;font-size:28px}.loginbox p{color:var(--muted)}
+.field{margin:15px 0;text-align:right}.field label{display:block;font-size:13px;margin-bottom:7px;color:var(--muted)}
+input,select{width:100%;padding:12px 13px;border:1px solid #d7e2dc;border-radius:12px;background:#fbfdfb;outline:none}
+input:focus,select:focus{border-color:var(--green);box-shadow:0 0 0 3px #5b9b4720}
+.primary{width:100%;padding:13px;border-radius:13px;background:linear-gradient(135deg,var(--green),#6aaa50);color:#fff;font-weight:800;box-shadow:0 8px 20px #2f7d4a30}
+.demo{margin-top:14px;background:#eef7ec;padding:10px;border-radius:12px;font-size:12px;color:#49634f}
+.app{display:flex;min-height:100vh}.side{width:245px;background:linear-gradient(180deg,#123b2a,#285b39);color:#fff;padding:20px 14px;position:fixed;right:0;top:0;bottom:0}
+.brand{display:flex;gap:10px;align-items:center;padding:10px}.brandmark{width:45px;height:45px;border-radius:14px;background:#70ad58;display:grid;place-items:center;font-weight:900}.brand b{font-size:16px}.brand small{opacity:.7}
+.nav{margin-top:25px}.nav button{width:100%;padding:12px 14px;margin:4px 0;border-radius:12px;background:transparent;color:#e8f3ea;text-align:right}.nav button.active,.nav button:hover{background:#ffffff18}
+.logout{position:absolute;bottom:20px;right:14px;left:14px;background:#ffffff12;color:#fff;padding:11px;border-radius:12px}
+.main{margin-right:245px;width:calc(100% - 245px);padding:25px;max-width:1500px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}.top h2{margin:0}.date{color:var(--muted);font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.card{background:var(--card);border-radius:18px;padding:18px;box-shadow:var(--shadow);border:1px solid #e7eee9}.kpi .icon{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#edf7eb;font-size:20px}.kpi .label{color:var(--muted);font-size:13px;margin-top:12px}.kpi .value{font-size:23px;font-weight:900;margin-top:5px}.green{color:var(--green)}.red{color:var(--red)}.blue{color:var(--blue)}.gold{color:#a77b00}
+.section{margin-top:18px}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.sectionhead h3{margin:0}.btn{padding:9px 13px;border-radius:10px;background:#edf6ed;color:var(--green);font-weight:700}.btn.green{background:var(--green);color:white}.btn.red{background:#fff0f0;color:var(--red)}
+.progress{height:13px;background:#e8eee9;border-radius:20px;overflow:hidden}.progress span{height:100%;display:block;background:linear-gradient(90deg,#4f984d,#a1c866);border-radius:20px}
+.two{display:grid;grid-template-columns:1.15fr .85fr;gap:16px}.bars{display:flex;align-items:end;height:190px;gap:10px;padding-top:20px}.barcol{flex:1;text-align:center;height:100%;display:flex;flex-direction:column;justify-content:end;gap:5px}.bar{background:linear-gradient(#62a957,#2f7d4a);border-radius:8px 8px 2px 2px;min-height:3px}.barcol small{color:var(--muted)}
+table{width:100%;border-collapse:collapse}th,td{padding:11px 9px;border-bottom:1px solid #edf1ee;text-align:right;font-size:13px}th{color:var(--muted);font-weight:700;background:#fafcfa}tr:hover td{background:#fbfefb}
+.badge{padding:5px 9px;border-radius:20px;font-size:11px;background:#edf7ed;color:var(--green)}.badge.warn{background:#fff6dc;color:#946e00}.badge.danger{background:#ffeded;color:var(--red)}
+.page{display:none}.page.active{display:block}.formgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.formgrid .full{grid-column:1/-1}.actions{display:flex;gap:8px;margin-top:14px}
+.modal{position:fixed;inset:0;background:#0b231875;display:grid;place-items:center;padding:20px;z-index:20}.modalbox{background:#fff;border-radius:20px;padding:22px;width:min(650px,100%);max-height:90vh;overflow:auto}.modalhead{display:flex;justify-content:space-between}.close{background:#f0f3f1;border-radius:9px;padding:6px 10px}
+.note{font-size:12px;color:var(--muted);line-height:1.8}.alert{padding:12px;border-radius:12px;background:#fff5db;color:#765a00;margin-top:12px}
+@media(max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.side{width:210px}.main{margin-right:210px;width:calc(100% - 210px)}}@media(max-width:700px){.side{position:static;width:100%;height:auto}.app{display:block}.main{margin:0;width:100%;padding:15px}.nav{display:grid;grid-template-columns:repeat(2,1fr)}.logout{position:static;margin-top:10px}.grid{grid-template-columns:1fr 1fr}.formgrid{grid-template-columns:1fr}.top{align-items:flex-start}.top h2{font-size:20px}table{min-width:800px}.tablewrap{overflow:auto}}
+</style>
+</head>
+<body>
+<div id="login" class="login">
+ <div class="loginbox">
+  <div class="logo">RG</div>
+  <h1>Rahmani Group</h1><p>سیستم اختصاصی مدیریت عمده‌فروشی ادویه و دارو</p>
+  <div class="field"><label>رمز ورود</label><input id="password" type="password" placeholder="رمز مدیریت را وارد کنید" autocomplete="current-password"></div>
+  <button class="primary" onclick="login()">ورود به سیستم</button>
+  <div class="demo">رمز اولیه آزمایشی: <b>Rahmani1405</b></div>
+  <p id="loginmsg" class="red"></p>
+ </div>
+</div>
+
+<div id="app" class="app hidden">
+ <aside class="side">
+  <div class="brand"><div class="brandmark">RG</div><div><b>RAHMANI GROUP</b><br><small>مدیریت دارویی</small></div></div>
+  <div class="nav">
+   <button class="active" onclick="showPage('dashboard',this)">🏠 داشبورد</button>
+   <button onclick="showPage('sales',this)">🧾 فروش و فاکتورها</button>
+   <button onclick="showPage('purchases',this)">📦 خرید</button>
+   <button onclick="showPage('stock',this)">💊 موجودی دوا</button>
+   <button onclick="showPage('customers',this)">👥 مشتریان</button>
+   <button onclick="showPage('expenses',this)">💸 مصارف</button>
+   <button onclick="showPage('reports',this)">📊 گزارش‌ها</button>
+   <button onclick="showPage('settings',this)">⚙️ تنظیمات</button>
+  </div>
+  <button class="logout" onclick="logout()">خروج از سیستم</button>
+ </aside>
+ <main class="main">
+  <div class="top"><div><h2 id="pageTitle">داشبورد مدیریتی</h2><div class="date" id="today"></div></div><button class="btn green" onclick="openSale()">＋ ثبت فروش</button></div>
+
+  <section id="dashboard" class="page active">
+   <div class="grid">
+    <div class="card kpi"><div class="icon">💰</div><div class="label">فروش امروز</div><div id="kTodaySales" class="value green">0</div></div>
+    <div class="card kpi"><div class="icon">📈</div><div class="label">مفاد خالص امروز</div><div id="kTodayProfit" class="value green">0</div></div>
+    <div class="card kpi"><div class="icon">🗓️</div><div class="label">فروش ماه جاری</div><div id="kMonthSales" class="value blue">0</div></div>
+    <div class="card kpi"><div class="icon">🏆</div><div class="label">مفاد سال جاری</div><div id="kYearProfit" class="value gold">0</div></div>
+    <div class="card kpi"><div class="icon">👥</div><div class="label">بدهی مشتریان</div><div id="kDebt" class="value red">0</div></div>
+    <div class="card kpi"><div class="icon">💊</div><div class="label">ارزش موجودی</div><div id="kInventory" class="value">0</div></div>
+    <div class="card kpi"><div class="icon">💸</div><div class="label">مصارف ماه جاری</div><div id="kExpenses" class="value red">0</div></div>
+    <div class="card kpi"><div class="icon">📊</div><div class="label">حاشیه مفاد سال</div><div id="kMargin" class="value">0%</div></div>
+   </div>
+   <div class="two section">
+    <div class="card"><div class="sectionhead"><h3>پیشرفت هدف مفاد سالانه</h3><b id="goalPct" class="green">0%</b></div><div class="progress"><span id="goalBar" style="width:0%"></span></div><p class="note">هدف: <b id="goalTarget">0</b> افغانی — مفاد خالص: <b id="goalProfit">0</b> افغانی</p></div>
+    <div class="card"><div class="sectionhead"><h3>هشدار موجودی</h3><span class="badge danger" id="lowCount">0 مورد</span></div><div id="lowStockList"></div></div>
+   </div>
+   <div class="card section"><div class="sectionhead"><h3>فروش ۶ ماه اخیر</h3></div><div id="bars" class="bars"></div></div>
+   <div class="card section"><div class="sectionhead"><h3>آخرین معاملات</h3><button class="btn" onclick="showPage('sales')">مشاهده همه</button></div><div class="tablewrap"><table><thead><tr><th>تاریخ</th><th>فاکتور</th><th>مشتری</th><th>فروش</th><th>مفاد</th></tr></thead><tbody id="recentSales"></tbody></table></div></div>
+  </section>
+
+  <section id="sales" class="page"><div class="card"><div class="sectionhead"><h3>ثبت و مدیریت فروش</h3><button class="btn green" onclick="openSale()">＋ فروش جدید</button></div><div class="tablewrap"><table><thead><tr><th>تاریخ</th><th>فاکتور</th><th>مشتری</th><th>دوا</th><th>تعداد</th><th>مبلغ</th><th>مفاد</th></tr></thead><tbody id="salesTable"></tbody></table></div></div></section>
+
+  <section id="purchases" class="page"><div class="card"><div class="sectionhead"><h3>خرید و ورود دوا</h3><button class="btn green" onclick="openPurchase()">＋ خرید جدید</button></div><div class="tablewrap"><table><thead><tr><th>تاریخ</th><th>تأمین‌کننده</th><th>دوا</th><th>تعداد</th><th>مبلغ</th></tr></thead><tbody id="purchaseTable"></tbody></table></div></div></section>
+
+  <section id="stock" class="page"><div class="card"><div class="sectionhead"><h3>موجودی دوا</h3><button class="btn green" onclick="openStock()">＋ دوا جدید</button></div><div class="tablewrap"><table><thead><tr><th>کد</th><th>نام دوا</th><th>شرکت</th><th>بچ</th><th>موجودی</th><th>قیمت خرید</th><th>قیمت فروش</th><th>وضعیت</th></tr></thead><tbody id="stockTable"></tbody></table></div></div></section>
+
+  <section id="customers" class="page"><div class="card"><div class="sectionhead"><h3>مشتریان و حساب بدهی</h3><button class="btn green" onclick="openCustomer()">＋ مشتری جدید</button></div><div class="tablewrap"><table><thead><tr><th>نام</th><th>مسئول</th><th>تماس</th><th>سقف اعتبار</th><th>بدهی</th><th>وضعیت</th></tr></thead><tbody id="customerTable"></tbody></table></div></div></section>
+
+  <section id="expenses" class="page"><div class="card"><div class="sectionhead"><h3>مصارف</h3><button class="btn green" onclick="openExpense()">＋ مصرف جدید</button></div><div class="tablewrap"><table><thead><tr><th>تاریخ</th><th>دسته‌بندی</th><th>شرح</th><th>مبلغ</th></tr></thead><tbody id="expenseTable"></tbody></table></div></div></section>
+
+  <section id="reports" class="page"><div class="grid">
+    <div class="card"><div class="label">فروش امروز</div><div id="rToday" class="value green">0</div></div>
+    <div class="card"><div class="label">فروش ماه</div><div id="rMonth" class="value blue">0</div></div>
+    <div class="card"><div class="label">فروش سال</div><div id="rYear" class="value">0</div></div>
+    <div class="card"><div class="label">مفاد خالص سال</div><div id="rProfit" class="value green">0</div></div>
+   </div>
+   <div class="card section"><h3>تفسیر مدیریتی</h3><div id="reportText" class="note" style="font-size:14px"></div></div>
+  </section>
+
+  <section id="settings" class="page"><div class="card"><h3>تنظیمات سیستم</h3>
+   <div class="formgrid">
+    <div class="field"><label>نام شرکت</label><input id="setCompany" value="Rahmani Group"></div>
+    <div class="field"><label>هدف مفاد سالانه</label><input id="setGoal" type="number" value="1000000"></div>
+    <div class="field"><label>حد هشدار موجودی</label><input id="setLow" type="number" value="10"></div>
+   </div><div class="actions"><button class="btn green" onclick="saveSettings()">ذخیره تنظیمات</button></div>
+   <div class="alert">این نسخه اطلاعات را در حافظه مرورگر دستگاه نگه می‌دارد. برای استفاده واقعی چندکاربره/شبکه‌ای، نسخه سروری با حساب‌های جداگانه مناسب‌تر است.</div>
+  </div></section>
+ </main>
+</div>
+
+<div id="modal" class="modal hidden"><div class="modalbox"><div class="modalhead"><h3 id="modalTitle">ثبت</h3><button class="close" onclick="closeModal()">✕</button></div><div id="modalBody"></div></div></div>
+
+<script>
+const HASH="604119edf7a8c50d16d07c5d674755caf0494ac96e6cc47d94dddf11369ab152";
+const KEY="rahmani_group_v1";
+const today=new Date();
+const iso=d=>new Date(d).toISOString().slice(0,10);
+const fmt=n=>new Intl.NumberFormat('fa-AF',{maximumFractionDigits:0}).format(Math.round(n||0))+" افغانی";
+const sample={
+ settings:{company:"Rahmani Group",goal:1000000,low:10},
+ sales:[
+  {date:iso(today),invoice:"INV-1007",customer:"دواخانه صحت",drug:"Amoxicillin 500mg",qty:50,total:17500,cost:12500,received:12000},
+  {date:iso(today),invoice:"INV-1008",customer:"کلینیک رحمان",drug:"Cefixime 200mg",qty:30,total:15000,cost:10500,received:15000},
+  {date:iso(new Date(today-86400000)),invoice:"INV-1006",customer:"دواخانه بهار",drug:"Cetirizine 60ml",qty:40,total:8000,cost:5600,received:5000},
+  {date:iso(new Date(today-2*86400000)),invoice:"INV-1005",customer:"دواخانه صحت",drug:"Paracetamol 500mg",qty:100,total:10000,cost:7000,received:8000},
+  {date:iso(new Date(today-32*86400000)),invoice:"INV-1004",customer:"کلینیک نور",drug:"Omeprazole 20mg",qty:60,total:13200,cost:9000,received:13200}
+ ],
+ purchases:[
+  {date:iso(new Date(today-4*86400000)),supplier:"شرکت افغان فارما",drug:"Amoxicillin 500mg",qty:200,total:50000},
+  {date:iso(new Date(today-12*86400000)),supplier:"شرکت صحت‌گستر",drug:"Cefixime 200mg",qty:120,total:42000}
+ ],
+ stock:[
+  {code:"A-001",drug:"Amoxicillin 500mg",company:"افغان فارما",batch:"AM26-01",qty:150,buy:250,sell:350},
+  {code:"A-002",drug:"Cefixime 200mg",company:"صحت‌گستر",batch:"CF26-07",qty:8,buy:350,sell:500},
+  {code:"A-003",drug:"Cetirizine 60ml",company:"افغان فارما",batch:"CT26-03",qty:35,buy:140,sell:200},
+  {code:"A-004",drug:"Paracetamol 500mg",company:"رحمانی",batch:"PC26-02",qty:4,buy:70,sell:100}
+ ],
+ customers:[
+  {name:"دواخانه صحت",person:"احمد",phone:"0700000000",limit:50000,debt:5500},
+  {name:"کلینیک رحمان",person:"رحمان",phone:"0700000001",limit:40000,debt:0},
+  {name:"دواخانه بهار",person:"علی",phone:"0700000002",limit:30000,debt:3000},
+  {name:"کلینیک نور",person:"نور",phone:"0700000003",limit:30000,debt:0}
+ ],
+ expenses:[
+  {date:iso(today),cat:"ترانسپورت",desc:"کرایه انتقال سفارش",amount:500},
+  {date:iso(new Date(today-86400000)),cat:"اداری",desc:"قرطاسیه و چاپ",amount:300},
+  {date:iso(new Date(today-10*86400000)),cat:"برق/انترنت",desc:"مصارف دفتر",amount:1200}
+ ]
+};
+let db=JSON.parse(localStorage.getItem(KEY)||"null")||sample;
+function save(){localStorage.setItem(KEY,JSON.stringify(db));}
+
+function login(){let p=document.getElementById("password").value;if(p==="Rahmani1405"){document.getElementById("login").classList.add("hidden");document.getElementById("app").classList.remove("hidden");renderAll()}else{document.getElementById("loginmsg").textContent="رمز نادرست است.";document.getElementById("password").focus();}}
+function logout(){document.getElementById("app").classList.add("hidden");document.getElementById("login").classList.remove("hidden");document.getElementById("password").value=""}
+function showPage(id,btn){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));if(btn)btn.classList.add("active");document.getElementById("pageTitle").textContent={dashboard:"داشبورد مدیریتی",sales:"فروش و فاکتورها",purchases:"خرید",stock:"موجودی دوا",customers:"مشتریان",expenses:"مصارف",reports:"گزارش‌ها",settings:"تنظیمات سیستم"}[id]}
+function sum(a,f){return a.reduce((s,x)=>s+(+f(x)||0),0)}
+function between(d,start,end){return d>=start&&d<=end}
+function metrics(){
+ let t=iso(today), ms=new Date(today.getFullYear(),today.getMonth(),1), ys=new Date(today.getFullYear(),0,1);
+ let m=iso(ms), y=iso(ys);
+ let td=db.sales.filter(x=>x.date===t), mo=db.sales.filter(x=>x.date>=m&&x.date<=t), yr=db.sales.filter(x=>x.date>=y&&x.date<=t);
+ let expM=db.expenses.filter(x=>x.date>=m&&x.date<=t), expY=db.expenses.filter(x=>x.date>=y&&x.date<=t);
+ let gross=s=>sum(s,x=>x.total-x.cost), net=s=>gross(s)-sum(s,()=>0);
+ return {td,mo,yr,expM,expY,todaySales:sum(td,x=>x.total),todayProfit:gross(td),monthSales:sum(mo,x=>x.total),yearProfit:gross(yr)-sum(expY,x=>x.amount),monthExpenses:sum(expM,x=>x.amount),yearSales:sum(yr,x=>x.total),debt:sum(db.customers,x=>x.debt),inventory:sum(db.stock,x=>x.qty*x.buy)};
+}
+function renderAll(){
+ document.getElementById("today").textContent=new Intl.DateTimeFormat("fa-AF",{dateStyle:"full"}).format(today);
+ let m=metrics(), net=m.yearProfit, margin=m.yearSales?net/m.yearSales*100:0, pct=db.settings.goal?net/db.settings.goal*100:0;
+ [["kTodaySales",m.todaySales],["kTodayProfit",m.todayProfit],["kMonthSales",m.monthSales],["kYearProfit",net],["kDebt",m.debt],["kInventory",m.inventory],["kExpenses",m.monthExpenses]].forEach(([id,v])=>document.getElementById(id).textContent=fmt(v));
+ document.getElementById("kMargin").textContent=(margin||0).toFixed(1)+"%";
+ document.getElementById("goalPct").textContent=Math.max(0,pct).toFixed(1)+"%";document.getElementById("goalBar").style.width=Math.min(100,Math.max(0,pct))+"%";
+ document.getElementById("goalTarget").textContent=fmt(db.settings.goal);document.getElementById("goalProfit").textContent=fmt(net);
+ let lows=db.stock.filter(x=>x.qty<=db.settings.low);document.getElementById("lowCount").textContent=lows.length+" مورد";
+ document.getElementById("lowStockList").innerHTML=lows.length?lows.map(x=>`<div style="padding:8px 0;border-bottom:1px solid #eee">${x.drug} <span class="badge danger">${x.qty} عدد</span></div>`).join(""):"<div class='note'>موجودی هشدار ندارد ✅</div>";
+ renderBars();renderTables();renderReports();
+}
+function renderBars(){
+ let box=document.getElementById("bars"), months=[];
+ for(let i=5;i>=0;i--){let d=new Date(today.getFullYear(),today.getMonth()-i,1),st=iso(d),en=iso(new Date(d.getFullYear(),d.getMonth()+1,0)),v=sum(db.sales.filter(x=>between(x.date,st,en)),x=>x.total);months.push({name:new Intl.DateTimeFormat("fa-AF",{month:"short"}).format(d),v})}
+ let max=Math.max(1,...months.map(x=>x.v));box.innerHTML=months.map(x=>`<div class="barcol"><div style="font-size:10px">${fmt(x.v)}</div><div class="bar" style="height:${Math.max(4,x.v/max*145)}px"></div><small>${x.name}</small></div>`).join("");
+}
+function renderTables(){
+ document.getElementById("recentSales").innerHTML=db.sales.slice(-5).reverse().map(x=>`<tr><td>${x.date}</td><td>${x.invoice}</td><td>${x.customer}</td><td>${fmt(x.total)}</td><td class="green">${fmt(x.total-x.cost)}</td></tr>`).join("");
+ document.getElementById("salesTable").innerHTML=db.sales.slice().reverse().map(x=>`<tr><td>${x.date}</td><td>${x.invoice}</td><td>${x.customer}</td><td>${x.drug}</td><td>${x.qty}</td><td>${fmt(x.total)}</td><td class="green">${fmt(x.total-x.cost)}</td></tr>`).join("");
+ document.getElementById("purchaseTable").innerHTML=db.purchases.slice().reverse().map(x=>`<tr><td>${x.date}</td><td>${x.supplier}</td><td>${x.drug}</td><td>${x.qty}</td><td>${fmt(x.total)}</td></tr>`).join("");
+ document.getElementById("stockTable").innerHTML=db.stock.map(x=>`<tr><td>${x.code}</td><td>${x.drug}</td><td>${x.company}</td><td>${x.batch}</td><td>${x.qty}</td><td>${fmt(x.buy)}</td><td>${fmt(x.sell)}</td><td><span class="badge ${x.qty<=db.settings.low?'danger':''}">${x.qty<=db.settings.low?'سفارش بده':'موجود'}</span></td></tr>`).join("");
+ document.getElementById("customerTable").innerHTML=db.customers.map(x=>`<tr><td>${x.name}</td><td>${x.person}</td><td>${x.phone}</td><td>${fmt(x.limit)}</td><td class="red">${fmt(x.debt)}</td><td><span class="badge ${x.debt>x.limit?'danger':x.debt?'warn':''}">${x.debt>x.limit?'بیش از سقف':x.debt?'بدهکار':'تسویه'}</span></td></tr>`).join("");
+ document.getElementById("expenseTable").innerHTML=db.expenses.slice().reverse().map(x=>`<tr><td>${x.date}</td><td>${x.cat}</td><td>${x.desc}</td><td class="red">${fmt(x.amount)}</td></tr>`).join("");
+}
+function renderReports(){let m=metrics();document.getElementById("rToday").textContent=fmt(m.todaySales);document.getElementById("rMonth").textContent=fmt(m.monthSales);document.getElementById("rYear").textContent=fmt(m.yearSales);document.getElementById("rProfit").textContent=fmt(m.yearProfit);let pct=m.yearProfit/db.settings.goal*100;document.getElementById("reportText").innerHTML=`تا امروز <b>${fmt(m.yearSales)}</b> فروش ثبت شده و مفاد خالص پس از مصارف <b>${fmt(m.yearProfit)}</b> است. درصد پیشرفت هدف سالانه <b>${pct.toFixed(1)}%</b> می‌باشد. حاشیه مفاد خالص حدود <b>${(m.yearSales?m.yearProfit/m.yearSales*100:0).toFixed(1)}%</b> است. بدهی مشتریان <b>${fmt(m.debt)}</b> و ارزش خرید موجودی فعلی <b>${fmt(m.inventory)}</b> است.`}
+function modal(title,body){document.getElementById("modalTitle").textContent=title;document.getElementById("modalBody").innerHTML=body;document.getElementById("modal").classList.remove("hidden")}
+function closeModal(){document.getElementById("modal").classList.add("hidden")}
+function openSale(){modal("ثبت فروش جدید",`<div class="formgrid"><div class="field"><label>تاریخ</label><input id="fdate" type="date" value="${iso(today)}"></div><div class="field"><label>شماره فاکتور</label><input id="finv" value="INV-${1000+db.sales.length+1}"></div><div class="field"><label>مشتری</label><input id="fcustomer"></div><div class="field"><label>نام دوا</label><input id="fdrug"></div><div class="field"><label>تعداد</label><input id="fqty" type="number" value="1"></div><div class="field"><label>مبلغ فروش</label><input id="ftotal" type="number"></div><div class="field"><label>قیمت تمام‌شده</label><input id="fcost" type="number"></div><div class="field"><label>دریافت</label><input id="freceived" type="number" value="0"></div></div><div class="actions"><button class="btn green" onclick="addSale()">ثبت و محاسبه</button></div>`)}
+function addSale(){let x={date:fdate.value,invoice:finv.value,customer:fcustomer.value||"مشتری نقدی",drug:fdrug.value||"دوا",qty:+fqty.value,total:+ftotal.value,cost:+fcost.value,received:+freceived.value};db.sales.push(x);let c=db.customers.find(y=>y.name===x.customer);if(c)c.debt+=x.total-x.received;save();closeModal();renderAll()}
+function openPurchase(){modal("ثبت خرید",`<div class="formgrid"><div class="field"><label>تاریخ</label><input id="pdate" type="date" value="${iso(today)}"></div><div class="field"><label>تأمین‌کننده</label><input id="psupplier"></div><div class="field"><label>نام دوا</label><input id="pdrug"></div><div class="field"><label>تعداد</label><input id="pqty" type="number"></div><div class="field"><label>مبلغ کل</label><input id="ptotal" type="number"></div></div><div class="actions"><button class="btn green" onclick="addPurchase()">ثبت خرید</button></div>`)}
+function addPurchase(){db.purchases.push({date:pdate.value,supplier:psupplier.value||"تأمین‌کننده",drug:pdrug.value||"دوا",qty:+pqty.value,total:+ptotal.value});save();closeModal();renderAll()}
+function openStock(){modal("افزودن دوا به موجودی",`<div class="formgrid"><div class="field"><label>کد</label><input id="scode"></div><div class="field"><label>نام دوا</label><input id="sdrug"></div><div class="field"><label>شرکت</label><input id="scompany"></div><div class="field"><label>بچ نمبر</label><input id="sbatch"></div><div class="field"><label>موجودی</label><input id="sqty" type="number"></div><div class="field"><label>قیمت خرید</label><input id="sbuy" type="number"></div><div class="field"><label>قیمت فروش</label><input id="ssell" type="number"></div></div><div class="actions"><button class="btn green" onclick="addStock()">ثبت دوا</button></div>`)}
+function addStock(){db.stock.push({code:scode.value,drug:sdrug.value,company:scompany.value,batch:sbatch.value,qty:+sqty.value,buy:+sbuy.value,sell:+ssell.value});save();closeModal();renderAll()}
+function openCustomer(){modal("ثبت مشتری",`<div class="formgrid"><div class="field"><label>نام دواخانه</label><input id="cname"></div><div class="field"><label>مسئول</label><input id="cperson"></div><div class="field"><label>شماره تماس</label><input id="cphone"></div><div class="field"><label>سقف اعتبار</label><input id="climit" type="number"></div><div class="field"><label>بدهی اولیه</label><input id="cdebt" type="number" value="0"></div></div><div class="actions"><button class="btn green" onclick="addCustomer()">ثبت مشتری</button></div>`)}
+function addCustomer(){db.customers.push({name:cname.value,person:cperson.value,phone:cphone.value,limit:+climit.value,debt:+cdebt.value});save();closeModal();renderAll()}
+function openExpense(){modal("ثبت مصرف",`<div class="formgrid"><div class="field"><label>تاریخ</label><input id="edate" type="date" value="${iso(today)}"></div><div class="field"><label>دسته‌بندی</label><input id="ecat" value="اداری"></div><div class="field full"><label>شرح</label><input id="edesc"></div><div class="field"><label>مبلغ</label><input id="eamount" type="number"></div></div><div class="actions"><button class="btn green" onclick="addExpense()">ثبت مصرف</button></div>`)}
+function addExpense(){db.expenses.push({date:edate.value,cat:ecat.value,desc:edesc.value,amount:+eamount.value});save();closeModal();renderAll()}
+function saveSettings(){db.settings.company=document.getElementById("setCompany").value;db.settings.goal=+document.getElementById("setGoal").value;db.settings.low=+document.getElementById("setLow").value;save();renderAll();alert("تنظیمات ذخیره شد.")}
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&!document.getElementById("login").classList.contains("hidden"))login()});
+document.getElementById("setCompany").value=db.settings.company;document.getElementById("setGoal").value=db.settings.goal;document.getElementById("setLow").value=db.settings.low;
+</script>
+</body>
+</html>
